@@ -1,3 +1,5 @@
-#!env bash
+#!/usr/bin/sh
 
-. ./install.d/install-neovim.sh
+sudo apt update
+sudo apt upgrade -y
+./install.d/install-neovim.sh
