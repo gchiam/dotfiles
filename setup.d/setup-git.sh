@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/bin/sh
 
 git config --global alias.adddiff "!git st | grep modified | sed 's/modified: //' | xargs git add"
 
