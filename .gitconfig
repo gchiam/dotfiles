@@ -1,0 +1,90 @@
+[alias]
+	adddiff = !git st | grep modified | sed 's/modified: //' | xargs git add
+	d = diff
+	dc = diff --cached
+	dw = diff --word-diff=color
+	dcw = diff --word-diff=color --cached
+	dwc = diff --word-diff=color --cached
+	dt = difftool
+	dtg = difftool --gui
+	l = log --color --graph --pretty=format:'%C(magenta)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+	lg = log --all --color --graph --pretty=format:'%C(magenta)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+	lm = log --color --graph --pretty=format:'%C(magenta)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit master...
+	lmn = log --color --graph --pretty=format:'%C(magenta)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit main...
+	lo = log --color --graph --pretty=format:'%C(magenta)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit origin/HEAD...
+	standup = log --color --pretty=format:'%C(magenta)%h%Creset -%Creset %s %Cgreen(%cD) %C(bold blue)<%an>%Creset' --since='1 week ago' --author gchiam
+	br = branch
+	bo = branch --all --verbose --verbose
+	bom = branch --all --list \"*gchiam*\" --verbose --verbose
+	bv = branch --verbose --verbose
+	bvm = branch --list \"*gchiam*\" --verbose --verbose
+	cleanup = !git branch --merged | grep -v \"*\\|main|master\" | xargs -n 1 git branch -d
+	cbr = rev-parse --abbrev-ref HEAD
+	co = checkout
+	cp = cherry-pick
+	main = checkout main
+	mn = checkout main
+	master = checkout master
+	ms = checkout master
+	ci = commit
+	pl = pull
+	plp = pull --prune
+	s = status -sb
+	search = log --no-merges -i -E --pretty='%C(magenta)%h%Creset %C(green)(%ad, %Cgreen%cr)%Creset %C(bold blue)<%an>%Creset %s %C(yellow)%d%Creset' --date=format:'%b %d %Y' --grep
+	sm = submodule
+	st = status -b
+	unstage = reset HEAD --
+	last = log -1 HEAD
+[pull]
+	rebase = false
+[diff]
+	tool = vimdiff
+	guitool = opendiff
+[difftool]
+	prompt = no
+[difftool "vimdiff"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+[difftool "opendiff"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+[merge]
+	tool = vimdiff
+[mergetool]
+	prompt = true
+[mergetool "vimdiff"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c '$wincmd w' -c 'wincmd J'
+[core]
+	pager = "delta --theme='Nord' --plus-color='#142e26' --minus-color='#2b1618'"
+[interactive]
+	diffFilter = delta --color-only
+[color]
+	ui = true
+	pager = true
+[color "branch"]
+	current = green bold
+	local = normal
+	remote = blue bold
+	plain = normal
+[color "diff"]
+	meta = yellow
+	frag = cyan reverse
+	old = red bold
+	new = green bold
+	plain = normal
+	commit = magenta reverse
+	whitespace = normal
+[color "grep"]
+	context = normal
+	filename = magenta bold reverse
+	linenumber = cyan
+	match = green bold reverse
+	selected = green
+	separator = cyan
+[color "status"]
+	header = normal
+	added = green bold
+	changed = red bold
+	untracked = yellow
+	nobranch = cyan
+[user]
+	name = Gordon Chiam
+	email = gordon.chiam@gmail.com
