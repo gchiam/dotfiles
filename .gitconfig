@@ -1,3 +1,6 @@
+[user]
+	name = Gordon Chiam
+	email = gordon.chiam@gmail.com
 [alias]
 	adddiff = !git st | grep modified | sed 's/modified: //' | xargs git add
 	d = diff
@@ -85,6 +88,3 @@
 	changed = red bold
 	untracked = yellow
 	nobranch = cyan
-[user]
-	name = Gordon Chiam
-	email = gordon.chiam@gmail.com
