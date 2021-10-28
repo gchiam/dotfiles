@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo apt update
+sudo apt-get update
 
 ./install.d/install-core.sh
 ./install.d/install-git-delta.sh

@@ -1,3 +1,3 @@
 #!/bin/sh
 
-sudo apt install -y build-essential
+sudo apt-get install -y build-essential
