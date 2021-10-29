@@ -13,3 +13,5 @@ ln -snvf ~/.local/opt/nvim/squashfs-root/usr/bin/nvim ~/.local/bin/nvim
 pip install -U pip
 pip install neovim
 cd -
+
+ln -snvf /workspaces/dotfiles/.config/nvim ~/.config/
